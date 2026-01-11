@@ -4,7 +4,7 @@ import subprocess
 import urllib.request
 import time
 
-# Konfigurasi Warna untuk Terminal
+# Warna warni
 class Colors:
     HEADER = '\033[95m'
     BLUE = '\033[94m'
@@ -42,7 +42,7 @@ def create_android_project():
     if not package_name:
         package_name = "com.demo.app"
     
-    # 2. Buat Folder
+    # 2. Anuin folder
     if os.path.exists(project_name):
         print(f"{Colors.WARNING}Folder '{project_name}' sudah ada!{Colors.ENDC}")
         confirm = input("Continue? (y/n): ")
@@ -54,10 +54,9 @@ def create_android_project():
     os.chdir(project_name)
     print_success(f"Masuk ke folder {project_name}")
 
-    # 3. Download android.jar (API 33/34 untuk support D8 modern)
+    # 3. Download android.jar
     if not os.path.exists("android.jar"):
-        # Menggunakan API 33 dari repository Sable yang stabil
-        url = "https://github.com/Sable/android-platforms/raw/master/android-33/android.jar"
+        url = "https://github.com/Sable/android-platforms/raw/master/android-34/android.jar"
         download_file(url, "android.jar")
     
     # 4. Buat Keystore Otomatis
@@ -77,11 +76,11 @@ def create_android_project():
         subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         print_success("Keystore created successfully.")
 
-    # 5. Buat Struktur Folder Java
+    # 5. Anuin Struktur Folder Java
     package_path = package_name.replace('.', '/')
     os.makedirs(package_path, exist_ok=True)
 
-    # 6. Buat AndroidManifest.xml
+    # 6. Anuin AndroidManifest.xml
     manifest_content = f"""<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="{package_name}">
@@ -166,7 +165,7 @@ public class MainActivity extends Activity {{
     build_script = f"""#!/bin/bash
 set -e # Stop jika ada error
 
-echo "🚀 Memulai Build Project: {project_name}..."
+echo "🚀 Start Build Project: {project_name}..."
 
 # Bersihkan file lama
 rm -f classes.dex app.apk app-signed.apk

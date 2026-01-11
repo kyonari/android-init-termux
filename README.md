@@ -1,2 +1,1 @@
-# android-build-termux
-silly attempt to build android app using termux
+silly attempt to init file project android app using termux

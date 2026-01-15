@@ -85,7 +85,7 @@ def create_android_project():
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="{package_name}">
 
-    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="33" />
+    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="34" />
 
     <application android:label="{project_name}" android:theme="@android:style/Theme.DeviceDefault.Light">
         <activity android:name=".MainActivity"
